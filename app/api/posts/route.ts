@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { posts } from "./[id]/posts"
+import { posts } from "./posts"
 
 // Можливість в одній функції віддати як усі пости, так і за пошуком по заголовку
 
