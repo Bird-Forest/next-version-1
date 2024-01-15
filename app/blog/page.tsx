@@ -1,40 +1,35 @@
-// "use client"
-import { Metadata } from "next";
-import Link from "next/link";
-import React from "react";
-import styles from "../page.module.css";
+"use client";
+// import { Metadata } from "next";
+import React, { useEffect, useState } from "react";
+// import styles from "../page.module.css";
+import { getAllPosts } from "@/services/getPosts";
+import PostSearch from "@/components/PostSearch";
+import Posts from "@/components/Posts";
+// import { getAllPosts } from "../../services/getPosts";
+// import Posts from "../../components/Posts";
+// import PostSearch from "../../components/PostSearch";
 
-async function getData() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    next: {
-      revalidate: 60,
-    },
-  });
+// export const metadata: Metadata = {
+//   title: " Blog | Next App",
+// };
 
-  if (!response.ok) throw new Error("Unable to fetch posts");
-  return response.json();
-}
+export default function Blog() {
+  const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export const metadata: Metadata = {
-  title: " Blog | Next App",
-};
+  useEffect(() => {
+    getAllPosts()
+      .then(setPosts)
+      .finally(() => setLoading(false));
+  }, []);
 
-export default async function Blog() {
-  const posts = await getData();
   // console.log(posts);
-  // УВАГА  {posts.map((post: any) => (  кругла скобка
+
   return (
     <>
       <h1>Blog page</h1>
-      <ul className={styles.posts}>
-        {posts.map((post: any) => (
-          <li key={post.id}>
-            <Link href={`/blog/${post.id}`} className={styles.post}>
-              {post.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <PostSearch onSearch={setPosts} />
+      {loading ? <h3>Loading ...</h3> : <Posts posts={posts} />}
     </>
   );
 }

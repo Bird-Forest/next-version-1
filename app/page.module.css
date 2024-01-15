@@ -23,6 +23,11 @@
   font-weight: 500;
 }
 
+.active {
+  color: yellow;
+  cursor: default;
+}
+
 .posts {
   display: flex;
   flex-direction: column;
