@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server'
 import { headers, cookies } from 'next/headers'
-<<<<<<<<< Temporary merge branch 1
-import { redirect } from 'next/navigation'
-=========
 // import { redirect } from 'next/navigation'
->>>>>>>>> Temporary merge branch 2
 
 // Працювати з header cookie
 export async function DELETE(req: Request, { params }: { params: { id: string } }) {
@@ -21,3 +17,4 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
 
   return NextResponse.json({ id, type, coo2 });
 }
+
