@@ -1,14 +1,14 @@
 "use client";
-import { Metadata } from "next";
+// import { Metadata } from "next";
 import React, { useEffect, useState } from "react";
 // import styles from "../page.module.css";
 import { getAllPosts } from "@/services/getPosts";
 import PostSearch from "@/components/PostSearch";
 import Posts from "@/components/Posts";
 
-export const metadata: Metadata = {
-  title: " Blog | Next App",
-};
+// export const metadata: Metadata = {
+//   title: " Blog | Next App",
+// };
 
 export default function Blog() {
   const [posts, setPosts] = useState<any[]>([]);
