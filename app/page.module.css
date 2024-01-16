@@ -11,10 +11,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
   background-color: black;
   width: 100%;
   height: 80px;
+}
+
+.navigate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
 }
 
 .link {
@@ -39,6 +45,13 @@
 .post {
   color: blue;
   font-size: 16px;
+}
+
+.btnGoogle {
+  width: 160px;
+  height: 60px;
+  color: #fafafa;
+  background-color: blue;
 }
 
 .container {
